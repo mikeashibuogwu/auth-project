@@ -3,7 +3,7 @@ import store from "../store";
 import Home from "../views/HomeView.vue";
 import Register from "../views/RegisterView.vue";
 import Login from "../views/LoginView.vue";
-import Posts from "../views/ProductsView.vue";
+import Products from "../views/ProductsView.vue";
 
 const routes = [
   {
@@ -24,9 +24,9 @@ const routes = [
     meta: { guest: true },
   },
   {
-    path: "/posts",
-    name: "Posts",
-    component: Posts,
+    path: "/products",
+    name: "Products",
+    component: Products,
     meta: { requiresAuth: true },
   },
 ];
@@ -48,7 +48,7 @@ router.beforeEach((to, from, next) => {
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.guest)) {
     if (store.getters.isAuthenticated) {
-      next("/posts");
+      next("/products");
       return;
     }
     next();

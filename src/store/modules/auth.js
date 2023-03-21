@@ -7,7 +7,7 @@ const state = {
 
 const getters = {
   isAuthenticated: (state) => !!state.user,
-  StatePosts: (state) => state.posts,
+  StateProducts: (state) => state.products,
   StateUser: (state) => state.user,
 };
 
@@ -25,14 +25,14 @@ const actions = {
     await commit("setUser", user.get("username"));
   },
 
-  async CreatePost({ dispatch }, post) {
-    await axios.post("post", post);
-    return await dispatch("GetPosts");
+  async CreateProducts({ dispatch }, products) {
+    await axios.post("product", products);
+    return await dispatch("GetProducts");
   },
 
   async GetPosts({ commit }) {
-    let response = await axios.get("posts");
-    commit("setPosts", response.data);
+    let response = await axios.get("products");
+    commit("setProducts", response.data);
   },
 
   async LogOut({ commit }) {
@@ -46,8 +46,8 @@ const mutations = {
     state.user = username;
   },
 
-  setPosts(state, posts) {
-    state.posts = posts;
+  setPosts(state, products) {
+    state.products = products;
   },
   logout(state, user) {
     state.user = user;

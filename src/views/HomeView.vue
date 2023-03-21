@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-  <p>Heyyyyyy welcome to our store, chseck out our products</p>
+  <p>Hello welcome to our store, check out our products</p>
   </div>
 </template>
 <script>

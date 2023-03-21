@@ -42,7 +42,7 @@
       async submit() {
         try {
           await this.Register(this.form);
-          this.$router.push("/posts");
+          this.$router.push("/products");
           this.showError = false
         } catch (error) {
           this.showError = true

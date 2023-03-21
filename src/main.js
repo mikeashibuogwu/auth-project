@@ -18,10 +18,8 @@ axios.interceptors.response.use(undefined, function(error) {
   }
 });
 
+const app = createApp(App);
 
-
-
-createApp(App)
-.use(router)
-store
-.mount('#app')
+app.use(router);
+app.use(store);
+app.mount('#app');

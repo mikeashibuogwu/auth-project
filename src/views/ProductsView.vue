@@ -61,7 +61,7 @@
         try {
           await this.Createproduct(this.form);
         } catch (error) {
-          throw "Sorry you can't make a product now!"
+          throw "Sorry you can't get a product now!"
         }
       },
     },
