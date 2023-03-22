@@ -25,7 +25,7 @@
   import { mapActions } from "vuex";
   
   export default {
-    name: "RegisterView",
+    name: "SignUpView",
     components: {},
     data() {
       return {
@@ -38,10 +38,10 @@
       };
     },
     methods: {
-      ...mapActions(["Register"]),
+      ...mapActions(["SignUp"]),
       async submit() {
         try {
-          await this.Register(this.form);
+          await this.SignUp(this.form);
           this.$router.push("/products");
           this.showError = false
         } catch (error) {

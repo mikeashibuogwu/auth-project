@@ -1,13 +1,13 @@
 <template>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/products">Products</router-link> |
+      <router-link style="text-decoration:none;" to="/">Home</router-link> |
+      <router-link style="text-decoration:none;" to="/products">Products</router-link> |
       <span v-if="isLoggedIn">
         <a @click="logout">Logout</a>
       </span>
       <span v-else>
-        <router-link to="/register">Register</router-link> |
-        <router-link to="/login">Login</router-link>
+        <router-link style="text-decoration:none;" to="/signup">Sign Up</router-link> |
+        <router-link style="text-decoration:none;" to="/login">Log In</router-link>
       </span>
     </div>
   </template>

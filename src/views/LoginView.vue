@@ -33,13 +33,13 @@
       };
     },
     methods: {
-      ...mapActions(["LogIn"]),
+      ...mapActions(["Login"]),
       async submit() {
         const User = new FormData();
         User.append("username", this.form.username);
         User.append("password", this.form.password);
         try {
-            await this.LogIn(User);
+            await this.Login(User);
             this.$router.push("/products");
             this.showError = false
         } catch (error) {
