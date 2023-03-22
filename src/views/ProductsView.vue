@@ -3,69 +3,29 @@
       <div v-if="User">
         <p>Hi {{ User }}</p>
       </div>
-      <div>
-        <form @submit.prevent="submit">
-          <div>
-            <label for="title">Title:</label>
-            <input type="text" name="title" v-model="form.title" />
-          </div>
-          <div>
-            <textarea
-              name="write_up"
-              v-model="form.write_up"
-              placeholder="Write up..."
-            ></textarea>
-          </div>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-      <div class="products" v-if="products">
-        <ul>
-          <li v-for="product in products" :key="product.id">
-            <div id="product-div">
-              <p>{{ product.title }}</p>
-              <p>{{ product.write_up }}</p>
-              <p>Written By: {{ product.author.username }}</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div v-else>Oh no!!! We have no products</div>
     </div>
+      
   </template>
   
   <script>
-  import { mapGetters, mapActions } from "vuex";
-  
   export default {
     name: "productsView",
     components: {},
     data() {
       return {
-        form: {
-          title: "",
-          write_up: "",
-        },
+        data: null
       };
     },
-    created: function() {
-      // a function to call getproducts action
-      this.Getproducts()
-    },
-    computed: {
-      ...mapGetters({ products: "Stateproducts", User: "StateUser" }),
-    },
     methods: {
-      ...mapActions(["Createproduct", "Getproducts"]),
-      async submit() {
-        try {
-          await this.Createproduct(this.form);
-        } catch (error) {
-          throw "Sorry you can't get a product now!"
-        }
+      async fetchData() {
+        const response = await fetch("https://dummyjson.com/products");
+        this.data = await response.json();
       },
+      },
+      mounted() {
+        this.fetchData();
     },
-  };
+    };
   </script>
   <style scoped>
   * {

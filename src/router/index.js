@@ -4,6 +4,7 @@ import Home from "../views/HomeView.vue";
 import Register from "../views/RegisterView.vue";
 import Login from "../views/LoginView.vue";
 import Products from "../views/ProductsView.vue";
+import PageNotFound from "../views/PageNotFound.vue";
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
     component: Products,
     meta: { requiresAuth: true },
   },
+  {
+    path: "/:catchAll(.*)", 
+    name: "PageNotFound",
+    component: PageNotFound,
+  }
 ];
 
 const router = createRouter({ history: createWebHistory(), routes });
